@@ -12,7 +12,7 @@
 
         <!-- Productos -->
         <v-row>
-            <producto v-for="item in items" img="some img" nombre="some name"></producto>
+            <producto v-for="item in items" img="some img" :nombre="item.name"></producto>
         </v-row>
 
     </div>
