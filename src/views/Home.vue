@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <router-link to="/list"><v-btn small>Items</v-btn></router-link>
     <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>

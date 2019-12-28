@@ -1,32 +1,42 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div id='App'>
+    <router-view />
+
+    <!-- Nav bar -->
+    <v-bottom-navigation v-model="bottomNav" :absolute=true>
+      
+      <v-btn value="recent" to="/list">
+        <span>Recent</span>
+        <v-icon>mdi-history</v-icon>
+      </v-btn>
+
+      <v-btn value="favorites" to="/">
+        <span>Favorites</span>
+        <v-icon>mdi-heart</v-icon>
+      </v-btn>
+
+      <v-btn value="nearby" to="/about">
+        <span>Nearby</span>
+        <v-icon>mdi-map-marker</v-icon>
+      </v-btn>
+    </v-bottom-navigation>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+  import HelloWorld from './components/HelloWorld';
 
-#nav {
-  padding: 30px;
-}
+  export default {
+    name: 'App',
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+    components: {
+      HelloWorld,
+    },
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+    data() {
+      return {
+        bottomNav: 'recent',
+      }
+    },
+  };
+</script>
