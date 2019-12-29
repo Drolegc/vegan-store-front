@@ -1,7 +1,7 @@
 <template>
     <div id="list">
         <!-- Buscador -->
-        <v-toolbar class="ms-auto" color="primary">
+        <v-toolbar class="ms-auto" color="yellow lighten-5">
             <v-toolbar-title>Title</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-text-field label="Search" v-model="search"></v-text-field>
@@ -11,8 +11,8 @@
         </v-toolbar>
 
         <!-- Productos -->
-        <v-row>
-            <producto v-for="item in items" img="some img" :nombre="item.name"></producto>
+        <v-row id="list-view">
+            <producto v-for="item in items" img="some img" :nombre="item.name" :locales="item.data_locales"></producto>
         </v-row>
 
     </div>
@@ -20,32 +20,40 @@
 
 <script>
 
-import Producto from '@/components/productos/producto.vue';
-import getItems from '@/utils/getItems.js';
+    import Producto from '@/components/productos/producto.vue';
+    import getItems from '@/utils/getItems.js';
 
-export default {
+    export default {
 
-    name:'list',
-    data() {
+        name: 'list',
+        data() {
 
-        return {
+            return {
 
-            items:[],
-            search:''
-        }
-    },
-    components: {
-
-        Producto,
-    },
-    created() {
-
-        var self = this;
-        getItems().then(
-            function(data){
-                self.items = data['results'];
+                items: [],
+                search: ''
             }
-        )
-    },
-};
+        },
+        components: {
+
+            Producto,
+        },
+        created() {
+
+            var self = this;
+            getItems().then(
+                function (data) {
+                    self.items = data['results'];
+                }
+            )
+        },
+    };
 </script>
+
+<style>
+
+#list-view {
+    max-height: 100vh;
+    overflow-y: auto;
+}
+</style>
