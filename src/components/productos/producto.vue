@@ -17,7 +17,9 @@
                         <v-expansion-panel v-for="local in locales">
                             <v-expansion-panel-header>{{local.name}}</v-expansion-panel-header>
                             <v-expansion-panel-content>
-                                <google-map :puntos="[{'latitud':local.lat,'ĺongitud':local.lng}]"></google-map>
+                                <google-map :puntos="[{'latitud':local.lat,'longitud':local.lng}]" :map="local.id" :name="local.name"></google-map>
+                                <v-spacer></v-spacer>
+                                <router-link :to="{ name: 'locales' }">Inventario de {{local.name}}</router-link>
                             </v-expansion-panel-content>
                         </v-expansion-panel>
                     </v-expansion-panels>
@@ -36,7 +38,7 @@
 
 <script>
 
-    import GoogleMap from '@/components/GoogleMap.vue';
+    import GoogleMap from '@/components/GoogleMaps/GoogleMap.vue';
 
     export default {
         name: 'producto',
