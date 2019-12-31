@@ -47,14 +47,25 @@
                     var label = {
                         text: local['name']
                     };
-                    var marker = new google.maps.Marker({ position: coords, map: map, label: label });
+                    var marker = new google.maps.Marker({
+                        position: coords,
+                        map: map, 
+                        label: label,
+                     });
+
+                     google.maps.event.addListener(marker, 'click', function() {
+                         console.log(local['id'])
+                        self.$router.push({ name:'local', params:{'id':local['id']}});
+                     });
+                    
                 };
-                self.cargando = false;
 
             }
         },
     }
 </script>
+
+
 
 <style>
     .GoogleMapAbsolute {

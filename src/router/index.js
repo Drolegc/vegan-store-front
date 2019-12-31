@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import List from '../views/List.vue'
 import LocalesDetails from '../views/LocalesDetails.vue';
+import LocalDetails from '../views/LocalDetails.vue';
 
 Vue.use(VueRouter)
 
@@ -29,6 +30,12 @@ const routes = [
     path: '/locales',
     name: 'locales' ,
     component: LocalesDetails
+  },
+  {
+    path: '/local/:id',
+    name: 'local',
+    props: true,
+    component: LocalDetails
   }
 ]
 
