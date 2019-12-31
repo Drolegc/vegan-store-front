@@ -11,7 +11,7 @@
           <v-icon>mdi-history</v-icon>
         </v-btn>
 
-        <v-btn value="favorites" to="/">
+        <v-btn value="favorites" :to="{ name:'locales' }">
           <span>Favorites</span>
           <v-icon>mdi-heart</v-icon>
         </v-btn>
